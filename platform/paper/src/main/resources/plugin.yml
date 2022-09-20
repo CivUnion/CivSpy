@@ -1,7 +1,8 @@
-name: ${name}
+name: ${pluginName}
 version: ${version}
 author: [ProgrammerDan]
-api-version: 1.13
+description: ${description}
+api-version: ${api_version}
 softdepend: [RecipeManager, Citadel, NameLayer, HiddenOre, CropControl, ExilePearl, CrazyCrates]
 main: com.programmerdan.minecraft.civspy.CivSpy
 commands:

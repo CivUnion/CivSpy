@@ -1,18 +1,12 @@
-val pluginName: String by project
-
 plugins {
+	id("io.papermc.paperweight.userdev") version "1.3.8"
 	id("com.github.johnrengelman.shadow")
 	id("xyz.jpenilla.run-paper") version "1.0.6"
 }
 
-repositories {
-	maven("https://papermc.io/repo/repository/maven-public/")
-}
-
 dependencies {
+	paperDevBundle("1.18.2-R0.1-SNAPSHOT")
 	implementation(project(":api"))
-
-	compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
 }
 
 tasks {
@@ -22,15 +16,6 @@ tasks {
 		relocate("org.postgresql", "com.programmerdan.minecraft.civspy.repack.postgresql")
 		relocate("org.checkerframework", "com.programmerdan.minecraft.civspy.repack.checkerframework")
 		relocate("com.zaxxer.hikari", "com.programmerdan.minecraft.civspy.repack.hikari")
-	}
-
-	processResources {
-		filesMatching("plugin.yml") {
-			expand(mapOf(
-				"name" to pluginName,
-				"version" to version,
-			))
-		}
 	}
 
 	runServer {
